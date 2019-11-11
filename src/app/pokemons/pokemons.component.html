@@ -1,0 +1,12 @@
+<div style="text-align:center;">
+	<img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-4.png" /></div>
+
+	<div class="container-fluid">
+		<div class="row" >
+			<div class="col-1" class="pok" *ngFor="let pokemon of pokemons; index as id" (click)="CatchPokemon(pokemon)"><div style="display:inline-block"><a
+					style="color:white;" [title]="pokemon.name" [routerLink]="['/pokemons',id+1]">
+					<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id+1}}.png"/></a></div>
+			</div>
+      
+		</div>
+	</div>
