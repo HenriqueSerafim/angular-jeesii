@@ -26,7 +26,8 @@
         <div id="buttontopPicture2"></div>
       </div>
       <div id="picture">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemonCaught.id}}.png" alt="{{pokemonCaught.name}}" height="170" />
+        <img *ngIf="!isShiny" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemonCaught.id}}.png" alt="{{pokemonCaught.name}}" height="170" />
+        <img *ngIf="isShiny" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/{{pokemonCaught.id}}.png" alt="shiny">
       </div>
       <div id="buttonbottomPicture"></div>
       <div id="speakers">
@@ -37,7 +38,7 @@
       </div>
     </div>
     <a href="https://angular-jeesii.stackblitz.io/pokemons/"><div id="bigbluebutton"></div></a>
-    <div id="barbutton1"></div>
+    <div id="barbutton1" (click)="toggleShiny()"></div>
     <div id="barbutton2"></div>
     <div id="cross">
       <div id="leftcross">
