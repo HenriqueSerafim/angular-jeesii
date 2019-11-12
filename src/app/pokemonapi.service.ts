@@ -10,7 +10,7 @@ export class PokemonApiService {
   constructor(private http: HttpClient) {}
 
   gottaCacthEmAll(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(this.apiUrl+'?limit=151');
+    return this.http.get<Pokemon[]>(this.apiUrl+'?limit=807');
   }
   gottaCatchNextPage(Pokenumber: number): Observable<Pokemon[]> {
     return this.http.get<Pokemon[]>(
