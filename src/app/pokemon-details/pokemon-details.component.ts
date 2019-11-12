@@ -35,4 +35,8 @@ export class PokemonDetailsComponent implements OnInit {
   toggleShiny() {
     this.isShiny = this.isShiny ? false : true;
   }
+  reloadPage(id:number){
+
+    
+  }
 }

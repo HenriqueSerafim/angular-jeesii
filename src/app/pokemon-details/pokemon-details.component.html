@@ -1,96 +1,112 @@
-<div id="pokedex"><img style="width:70%" src="https://camo.githubusercontent.com/1a4b11888ddf9f2b7a9353d6b69503e634e8704c/68747470733a2f2f692e696d6775722e636f6d2f415975745a4f462e706e67" alt="pokedex"/></div>
+<div id="pokedex">
+	<img style="width:70%" src="https://camo.githubusercontent.com/1a4b11888ddf9f2b7a9353d6b69503e634e8704c/68747470733a2f2f692e696d6775722e636f6d2f415975745a4f462e706e67" alt="pokedex"/></div>
 
-<div style="background-color:black;">
-<div id="pokedex" *ngIf="pokemonCaught">
-  <div id="left">
-    <div id="logo"></div>
-    <div id="bg_curve1_left"></div>
-    <div id="bg_curve2_left"></div>
-    <div id="curve1_left">
-      <div id="buttonGlass">
-        <div id="reflect"> </div>
+	<div>
+		<div id="pokedex" *ngIf="pokemonCaught">
+			<div id="left">
+				<div id="logo"></div>
+				<div id="bg_curve1_left"></div>
+				<div id="bg_curve2_left"></div>
+				<div id="curve1_left">
+					<div id="buttonGlass">
+						<div id="reflect"> </div>
+					</div>
+					<div id="miniButtonGlass1"></div>
+					<div id="miniButtonGlass2"></div>
+					<div id="miniButtonGlass3"></div>
+				</div>
+				<div id="curve2_left">
+					<div id="junction">
+						<div id="junction1"></div>
+						<div id="junction2"></div>
+					</div>
+				</div>
+				<div id="screen">
+					<div id="topPicture">
+						<div id="buttontopPicture1"></div>
+						<div id="buttontopPicture2"></div>
+					</div>
+					<div id="picture">
+						<img *ngIf="!isShiny" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemonCaught.id}}.png" alt="{{pokemonCaught.name}}" height="170" />
+						<img *ngIf="isShiny" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/{{pokemonCaught.id}}.png" alt="shiny" height="170">
       </div>
-      <div id="miniButtonGlass1"></div>
-      <div id="miniButtonGlass2"></div>
-      <div id="miniButtonGlass3"></div>
+						<div id="buttonbottomPicture"></div>
+						<div id="speakers">
+							<div class="sp"></div>
+							<div class="sp"></div>
+							<div class="sp"></div>
+							<div class="sp"></div>
+						</div>
+					</div>
+					<a href="https://angular-jeesii.stackblitz.io/pokemons/">
+						<div id="bigbluebutton"></div>
+					</a>
+					<a>
+						<div id="barbutton1" (click)="toggleShiny()"></div>
+					</a>
+					<div id="barbutton2"></div>
+					<div id="cross">
+						<div id="leftcross">
+						<a href="https://angular-jeesii.stackblitz.io/pokemons/{{pokemonCaught.id-1}}">	<div id="leftT"></div></a>
+						</div>
+						<div id="topcross">
+							<div id="upT"></div>
+						</div>
+						<div id="rightcross">
+							<a href="https://angular-jeesii.stackblitz.io/pokemons/{{pokemonCaught.id+1}}"><div id="rightT" ></div></a>
+						</div>
+						<div id="midcross">
+							<div id="midCircle"></div>
+						</div>
+						<div id="botcross">
+							<div id="downT"></div>
+						</div>
+					</div>
+				</div>
+				<div id="right">
+					<div id="stats">
+						<strong>Name:</strong> {{pokemonCaught.name}}<br/>
+						<strong>Type:</strong>
+						<span *ngFor="let type of pokemonCaught.types"> {{type.type.name}}</span><br/>
+						<strong>Height:</strong> <span> {{pokemonCaught.height}}</span><br/>
+						<strong>Weight:</strong><span> {{pokemonCaught.weight}} lbs</span><br/><br/>
+						<strong></strong><br/>
+
     </div>
-    <div id="curve2_left">
-      <div id="junction">
-        <div id="junction1"></div>
-        <div id="junction2"></div>
-      </div>
-    </div>
-    <div id="screen">
-      <div id="topPicture">
-        <div id="buttontopPicture1"></div>
-        <div id="buttontopPicture2"></div>
-      </div>
-      <div id="picture">
-        <img *ngIf="!isShiny" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemonCaught.id}}.png" alt="{{pokemonCaught.name}}" height="170" />
-        <img *ngIf="isShiny" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/{{pokemonCaught.id}}.png" alt="shiny">
-      </div>
-      <div id="buttonbottomPicture"></div>
-      <div id="speakers">
-        <div class="sp"></div>
-        <div class="sp"></div>
-        <div class="sp"></div>
-        <div class="sp"></div>
-      </div>
-    </div>
-    <a href="https://angular-jeesii.stackblitz.io/pokemons/"><div id="bigbluebutton"></div></a>
-    <div id="barbutton1" (click)="toggleShiny()"></div>
-    <div id="barbutton2"></div>
-    <div id="cross">
-      <div id="leftcross">
-        <div id="leftT"></div>
-      </div>
-      <div id="topcross">
-        <div id="upT"></div>
-      </div>
-      <div id="rightcross">
-        <div id="rightT"></div>
-      </div>
-      <div id="midcross">
-        <div id="midCircle"></div>
-      </div>
-      <div id="botcross">
-        <div id="downT"></div>
-      </div>
-    </div>
-  </div>
-  <div id="right">
-    <div id="stats">
-      <strong>Name:</strong> {{pokemonCaught.name}}<br/>
-      <strong>Type:</strong> <span *ngFor="let type of pokemonCaught.types"> |{{type.type.name}}|</span><br/>
-      <strong>Height:</strong> <span> {{pokemonCaught.height}}</span><br/>
-      <strong>Weight:</strong><span> {{pokemonCaught.weight}} lbs</span><br/><br/>
-      <strong>The duck Pokemon</strong><br/>
-      Uses mysterious powers to perform various attacks.
-    </div>
-    <div id="blueButtons1">
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-    </div>
-    <div id="blueButtons2">
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-    </div>
-    <div id="miniButtonGlass4"></div>
-    <div id="miniButtonGlass5"></div>
-    <div id="barbutton3"></div>
-    <div id="barbutton4"></div>
-    <div id="yellowBox1"></div>
-    <div id="yellowBox2"></div>
-    <div id="bg_curve1_right"></div>
-    <div id="bg_curve2_right"></div>
-    <div id="curve1_right"></div>
-    <div id="curve2_right"></div>
-  </div>
-</div>
-</div>
+						<div id="blueButtons1">
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+						</div>
+						<div id="blueButtons2">
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+							<div class="blueButton"></div>
+						</div>
+						<div id="miniButtonGlass4"></div>
+						<div id="miniButtonGlass5"></div>
+						<div id="barbutton3"></div>
+						<div id="barbutton4"></div>
+						<div id="yellowBox1"><p style="margin-top:25px;font-weight:bold">#{{pokemonCaught.id}}</p></div>
+						<div id="yellowBox2" *ngIf="!isShiny"><p style="margin-top:25px;font-weight:bold">Normal</p></div>
+            <div id="yellowBox2" *ngIf="isShiny"><p style="margin-top:25px;font-weight:bold">Shiny</p></div>
+						<div id="bg_curve1_right"></div>
+						<div id="bg_curve2_right"></div>
+						<div id="curve1_right"></div>
+						<div id="curve2_right"></div>
+					</div>
+				</div>
+			</div>
+      <div class="footer">
+					<p style="text-decoration:underline">Instructions of use for Pokedex:</p>
+					<ul>
+						<li >Blue Button - to go Back</li>
+						<li>Left Green Button - toggle between shiny and normal</li>
+            <li>Left Arrow - previous pokemon</li>
+            <li>Right Arrow - next pokemon</li>
+					</ul>
+				</div>
