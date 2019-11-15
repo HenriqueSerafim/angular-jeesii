@@ -9,6 +9,7 @@ import { PokemonApiService } from "../pokemonapi.service";
 })
 export class PokemonsComponent implements OnInit {
   pokemons: Pokemon[];
+  page:number=1;
   pagina:number;
   pokemonCaught:Pokemon;
   constructor(private pokemonApiService: PokemonApiService) {}
@@ -26,9 +27,5 @@ export class PokemonsComponent implements OnInit {
     this.pokemonApiService
       .gottaCacthEmAll()
       .subscribe(dados => (this.pokemons = dados.results));
-  }
-
-  paginate():void{
-    this.pokemonApiService.gottaCatchNextPage(this.pagina).subscribe(dados =>(this.pokemons = dados.results));
   }
 }

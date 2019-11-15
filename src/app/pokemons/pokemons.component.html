@@ -7,13 +7,21 @@
   </div>
   
 </div>
-
+   <div>
+      <pagination-controls (pageChange)="page = $event" 
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Anterior"
+                      nextLabel="Seguinte"></pagination-controls>
+      </div>
 	<div class="container-fluid">
 		<div class="row" >
-			<div class="col-1" class="pok" *ngFor="let pokemon of pokemons; index as id" (click)="CatchPokemon(pokemon)"><div style="display:inline-block"><a
-					style="color:white;" [title]="pokemon.name" [routerLink]="['/pokemons',id+1]">
-					<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id+1}}.png"/></a></div>
+			<div class="col-1" class="pok" *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 150,currentPage: page, totalItems: 807};" (click)="CatchPokemon(pokemon)"><div style="display:inline-block"><a
+					style="color:white;" [title]="pokemon.name" [routerLink]="['/pokemons',pokemon.url.split('/')[6]]">
+					<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.url.split('/')[6]}}.png"/></a></div>
 			</div>
       
 		</div>
+ 
 	</div>

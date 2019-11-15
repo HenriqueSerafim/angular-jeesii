@@ -8,7 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { PokemonDetailsComponent } from "./pokemon-details/pokemon-details.component";
 import { JwPaginationComponent } from 'jw-angular-pagination';
-
+import {NgxPaginationModule} from 'ngx-pagination'; 
 const routes: Routes = [
   { path: "", component: PokemonsComponent },
   { path: "pokemons/:pokemonId", component: PokemonDetailsComponent },
@@ -20,6 +20,7 @@ const routes: Routes = [
     BrowserModule,
      FormsModule,
       HttpClientModule,
+      NgxPaginationModule,
       RouterModule.forRoot(routes)],
   declarations: [AppComponent, PokemonsComponent, PokemonDetailsComponent,JwPaginationComponent],
   bootstrap: [AppComponent,PokemonsComponent,PokemonDetailsComponent ],
